@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+	xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>com.github.calflet</groupId>
+	<artifactId>root</artifactId>
+	<packaging>pom</packaging>
+	<version>1.0.0-SNAPSHOT</version>
+
+	<organization>
+		<name>Calflet</name>
+		<url>https://github.com/calflet/calflet</url>
+	</organization>
+
+	<url>https://github.com/dbeaver/dbeaver-common</url>
+
+	<scm>
+		<connection>scm:git:git@github.com:dbeaver/dbeaver-common.git</connection>
+		<developerConnection>scm:git:git@github.com:dbeaver/dbeaver-common.git</developerConnection>
+		<url>git@github.com:dbeaver/dbeaver-common.git</url>
+	</scm>
+
+	<issueManagement>
+		<system>github</system>
+		<url>https://github.com/dbeaver/dbeaver/issues</url>
+	</issueManagement>
+
+	<properties>
+		<calflet-version>1.0.0</calflet-version>
+		<tycho-version>5.0.2</tycho-version>
+		<eclipse-version>2025-12</eclipse-version>
+		<maven>3.9.9</maven>
+		<maven-version>${maven}</maven-version>
+		<build-timestamp>${maven.build.timestamp}</build-timestamp>
+		<repo.p2.eclipse.url>https://mirrors.aliyun.com/eclipse/releases/latest</repo.p2.eclipse.url>
+		<repo.p2.justj.url>
+			https://mirrors.aliyun.com/eclipse/justj/jres/21/updates/release/21.0.8</repo.p2.justj.url>
+		<repo.maven.central.url>https://maven.aliyun.com/repository/public</repo.maven.central.url>
+		<java.version>21</java.version>
+		<maven.compiler.source>${java.version}</maven.compiler.source>
+		<maven.compiler.target>${java.version}</maven.compiler.target>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<maven.build.timestamp.format>yyyyMMddHHmm</maven.build.timestamp.format>
+	</properties>
+
+	<repositories>
+		<repository>
+			<id>eclipse-p2-repo</id>
+			<url>${repo.p2.eclipse.url}</url>
+			<layout>p2</layout>
+		</repository>
+		<repository>
+			<id>justj-p2-repo</id>
+			<url>${repo.p2.justj.url}</url>
+			<layout>p2</layout>
+		</repository>
+	</repositories>
+
+	<build>
+		<sourceDirectory>${project.basedir}/src</sourceDirectory>
+		<plugins>
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>target-platform-configuration</artifactId>
+				<version>${tycho-version}</version>
+				<configuration>
+					<executionEnvironment>
+						org.eclipse.justj.openjdk.hotspot.jre.full.stripped-21
+					</executionEnvironment>
+					<dependency-resolution>
+						<profileProperties>
+							<org.eclipse.justj.buildtime>true</org.eclipse.justj.buildtime>
+						</profileProperties>
+					</dependency-resolution>
+					<environments>
+						<environment>
+							<os>linux</os>
+							<ws>gtk</ws>
+							<arch>x86_64</arch>
+						</environment>
+						<environment>
+							<os>win32</os>
+							<ws>win32</ws>
+							<arch>x86_64</arch>
+						</environment>
+						<environment>
+							<os>macosx</os>
+							<ws>cocoa</ws>
+							<arch>x86_64</arch>
+						</environment>
+					</environments>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>tycho-maven-plugin</artifactId>
+				<version>${tycho-version}</version>
+				<extensions>true</extensions>
+			</plugin>
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>tycho-compiler-plugin</artifactId>
+				<version>${tycho-version}</version>
+				<configuration>
+					<useProjectSettings>false</useProjectSettings>
+					<source>${java.version}</source>
+					<target>${java.version}</target>
+					<compilerVersion>${java.version}</compilerVersion>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>tycho-packaging-plugin</artifactId>
+				<version>${tycho-version}</version>
+				<configuration>
+					<archive>
+						<manifestEntries>
+							<Built-By>Calflet</Built-By>
+							<Created-By>Calflet</Created-By>
+							<Build-Time>${maven.build.timestamp}</Build-Time>
+						</manifestEntries>
+						<addMavenDescriptor>false</addMavenDescriptor>
+					</archive>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>
