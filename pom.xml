@@ -59,6 +59,11 @@
 		</repository>
 	</repositories>
 
+
+	<modules>
+		<module>plugins</module>
+	</modules>
+
 	<build>
 		<sourceDirectory>${project.basedir}/src</sourceDirectory>
 		<plugins>

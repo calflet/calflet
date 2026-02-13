@@ -1,0 +1,12 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Standalone
+Bundle-SymbolicName: com.github.calflet.ui.app.standalone;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-Vendor: Calflet
+Require-Bundle: org.eclipse.core.runtime,
+ org.eclipse.ui,
+ org.apache.felix.scr,
+ org.eclipse.equinox.event
+Automatic-Module-Name: com.github.calflet.ui.app.standalone
+Bundle-RequiredExecutionEnvironment: JavaSE-21

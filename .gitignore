@@ -33,3 +33,5 @@
 **/*.swp
 
 **/*.tycho*
+
+**/*.DS_Store
