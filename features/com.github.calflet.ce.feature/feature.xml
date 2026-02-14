@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature
       id="com.github.calflet.ce.feature"
-      label="Calflet"
+      label="%featureName"
       version="1.0.0.qualifier"
-      provider-name="Calflet">
+      provider-name="%featureVendor">
 
    <description url="http://www.example.com/description">
       [Enter Feature Description here.]
@@ -19,6 +19,14 @@
 
    <plugin
          id="com.github.calflet.ui.app.standalone"
+         version="0.0.0"/>
+
+   <plugin
+         id="org.eclipse.equinox.simpleconfigurator"
+         version="0.0.0"/>
+
+   <plugin
+         id="org.eclipse.update.configurator"
          version="0.0.0"/>
 
 </feature>

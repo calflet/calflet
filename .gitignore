@@ -35,3 +35,5 @@
 **/*.tycho*
 
 **/*.DS_Store
+
+**/bin/
