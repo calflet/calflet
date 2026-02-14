@@ -19,5 +19,17 @@
             id="com.github.calflet.ui.app.standalone.perspective">
       </perspective>
    </extension>
+   <extension
+         id="product"
+         point="org.eclipse.core.runtime.products">
+      <product
+            application="com.github.calflet.ui.app.standalone.application"
+            name="Calflet">
+         <property
+               name="appName"
+               value="Calflet">
+         </property>
+      </product>
+   </extension>
 
 </plugin>

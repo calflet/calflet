@@ -63,6 +63,7 @@
 	<modules>
 		<module>plugins</module>
 		<module>features</module>
+		<module>products</module>
 	</modules>
 
 	<build>
@@ -99,6 +100,11 @@
 						</environment>
 					</environments>
 				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>tycho-p2-director-plugin</artifactId>
+				<version>${tycho-version}</version>
 			</plugin>
 			<plugin>
 				<groupId>org.eclipse.tycho</groupId>
